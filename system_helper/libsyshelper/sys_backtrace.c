@@ -388,6 +388,10 @@ static void dump_stack(int signo, siginfo_t *info, void *data)
 		}
 		kill( pid, info->si_signo );
 		// kill(pid, SIGINT);
+		//in the end, check the old file, just keep the last 5 files: ls -t /var/tmp/*.bt | sed -n '6,$p' | awk '{system("rm "$1)}'
+		//char cmd_buf[256] = {0};
+		//sprintf(cmd_buf, "ls -t %s/bt_*.bt | sed -n '6,$p' | awk '{system(\"rm \"$1)}'", backtrace_store_path);
+		//system(cmd_buf);
 	}
 	else
 	{
